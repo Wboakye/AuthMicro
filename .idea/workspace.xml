@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c77fff1-b4c5-4c90-a1ba-cca59741b1ed" name="Default Changelist" comment="" />
+    <list default="true" id="0c77fff1-b4c5-4c90-a1ba-cca59741b1ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +32,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1a0G8ueIKqJcdn9jd8wOUEPn31I" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,6 +44,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -77,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585864941500</updated>
-      <workItem from="1585864967552" duration="14018000" />
+      <workItem from="1585864967552" duration="14899000" />
     </task>
     <servers />
   </component>
@@ -85,6 +94,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="3046" y="-408" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585885211107">
+      <screen x="1440" y="-970" width="2560" height="1417" />
+    </state>
+    <state x="3046" y="-408" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585885211107" />
     <state width="668" height="245" key="GridCell.Tab.0.bottom" timestamp="1585877930320">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -114,6 +127,10 @@
       <screen x="1440" y="-970" width="2560" height="1417" />
     </state>
     <state x="2105" y="-970" width="704" height="584" key="dock-window-1/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585884032032" />
+    <state x="2973" y="-582" width="639" height="729" key="find.popup" timestamp="1585884937065">
+      <screen x="1440" y="-970" width="2560" height="1417" />
+    </state>
+    <state x="2973" y="-582" width="639" height="729" key="find.popup/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585884937065" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AuthMicro$AuthMicro.coverage" NAME="AuthMicro Coverage Results" MODIFIED="1585877008416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
