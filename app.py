@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
@@ -5,15 +6,17 @@ from flask_jwt_extended import JWTManager
 import urllib.parse as up
 import psycopg2
 
-from constants import APP_SETTINGS, JWT_SECRET
+#from constants import APP_SETTINGS, JWT_SECRET
 from boto.s3.connection import S3Connection
+APP_SETTINGS = os.environ.get("APP_SETTINGS", 3)
+JWT_SECRET = os.environ.get("JWT_SECRET", 3)
 
 
 app = Flask(__name__)
 api = Api(app)
 
 #db_setup
-#app.config.from_object(APP_SETTINGS)
+app.config.from_object(APP_SETTINGS)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
