@@ -20,14 +20,7 @@ app = Flask(__name__)
 api = Api(app)
 
 #db_setup
-"""
-app.config.from_object(APP_SETTINGS)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-db = SQLAlchemy.create_engine(DB_STRING, {})
-"""
-
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_STRING
 db = SQLAlchemy(app)
 
