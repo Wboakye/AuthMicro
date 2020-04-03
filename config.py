@@ -1,5 +1,6 @@
 import os
 #from constants import *
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 DB_USER = os.environ.get("DATABASE_USER", 3)
 DB_PASS = os.environ.get("DATABASE_PASS", 3)
