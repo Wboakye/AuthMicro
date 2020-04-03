@@ -26,7 +26,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 """
 
-db = SQLAlchemy.create_engine(DB_STRING, {})
+db = SQLAlchemy.create_engine(DB_STRING, SQLAlchemy.get_options(DB_STRING, echo=False))
 
 #setup jwt
 app.config['PROPAGATE_EXCEPTIONS'] = True
