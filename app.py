@@ -25,6 +25,7 @@ app.config.from_object(APP_SETTINGS)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 """
+
 db = SQLAlchemy.create_engine(DB_STRING, {})
 
 #setup jwt
