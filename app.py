@@ -63,4 +63,6 @@ def home_view():
 
 
 if __name__ == ' __main__':
+    print("app start")
     app.run()
+    print("app end")
