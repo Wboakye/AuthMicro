@@ -1,7 +1,7 @@
 import os
 import config
 """
-    APP_SETTINGS: ProductionConfig, StagingConfig, DevelopmentConfig, TestingConfig
+    APP_SETTINGS: config.ProductionConfig, config.StagingConfig, config.DevelopmentConfig, config.TestingConfig
 """
 APP_SETTINGS = os.environ.get("APP_SETTINGS", 3)
 APP_SECRET = os.environ.get("APP_SECRET", 3)

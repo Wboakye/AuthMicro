@@ -10,16 +10,22 @@ import psycopg2
 from boto.s3.connection import S3Connection
 APP_SETTINGS = os.environ.get("APP_SETTINGS", 3)
 JWT_SECRET = os.environ.get("JWT_SECRET", 3)
-
-
+DB_USER = os.environ.get("DATABASE_USER", 3)
+DB_PASS = os.environ.get("DATABASE_PASS", 3)
+DB_HOST = os.environ.get("DB_HOST", 3)
+DB_PORT = os.environ.get("DB_PORT", 3)
+DB_NAME = os.environ.get("DB_NAME", 3)
+DB_STRING = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}'
 app = Flask(__name__)
 api = Api(app)
 
 #db_setup
+"""
 app.config.from_object(APP_SETTINGS)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
+"""
+db = SQLAlchemy.create_engine(DB_STRING)
 
 #setup jwt
 app.config['PROPAGATE_EXCEPTIONS'] = True
