@@ -1,8 +1,10 @@
 import os
 from flask import Flask
 from flask_restful import Api
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
+from sqlalchemy import create_engine
+
 import urllib.parse as up
 import psycopg2
 
@@ -26,7 +28,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 """
 
-db = SQLAlchemy.create_engine(DB_STRING, SQLAlchemy.get_options(DB_STRING, echo=False))
+#db = SQLAlchemy.create_engine(DB_STRING, {})
+db = create_engine(DB_STRING)
 
 #setup jwt
 app.config['PROPAGATE_EXCEPTIONS'] = True

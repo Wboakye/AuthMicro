@@ -86,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585864941500</updated>
-      <workItem from="1585864967552" duration="18797000" />
+      <workItem from="1585864967552" duration="19130000" />
     </task>
     <servers />
   </component>
@@ -114,11 +114,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="668" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585877930319" />
-    <state x="2277" y="-701" width="900" height="722" key="SettingsEditor" timestamp="1585890150439">
+    <state x="2277" y="-701" width="900" height="722" key="SettingsEditor" timestamp="1585890793093">
       <screen x="1440" y="-970" width="2560" height="1417" />
     </state>
     <state x="471" y="171" width="900" height="722" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1585877768097" />
-    <state x="2277" y="-701" key="SettingsEditor/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585890150439" />
+    <state x="2277" y="-701" key="SettingsEditor/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585890793093" />
     <state x="397" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1585864971088">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
