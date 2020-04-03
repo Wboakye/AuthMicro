@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c77fff1-b4c5-4c90-a1ba-cca59741b1ed" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585864941500</updated>
-      <workItem from="1585864967552" duration="21691000" />
+      <workItem from="1585864967552" duration="22305000" />
     </task>
     <servers />
   </component>
@@ -96,6 +99,10 @@
       <screen x="1440" y="-970" width="2560" height="1417" />
     </state>
     <state x="3046" y="-408" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585885211107" />
+    <state x="3110" y="-778" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585896007703">
+      <screen x="1440" y="-970" width="2560" height="1417" />
+    </state>
+    <state x="3110" y="-778" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585896007703" />
     <state width="668" height="245" key="GridCell.Tab.0.bottom" timestamp="1585877930320">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
