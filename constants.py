@@ -1,5 +1,4 @@
 import os
-import config
 """
     APP_SETTINGS: config.ProductionConfig, config.StagingConfig, config.DevelopmentConfig, config.TestingConfig
 """

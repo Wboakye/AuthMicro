@@ -1,9 +1,5 @@
 from app import db
 from passlib.hash import pbkdf2_sha256 as sha256
-#from sqlalchemy.ext.declarative import declarative_base
-
-#base = declarative_base()
-
 
 
 class UserModel(db.Model):
