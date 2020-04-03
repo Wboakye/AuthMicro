@@ -13,7 +13,7 @@ app = Flask(__name__)
 api = Api(app)
 
 #db_setup
-app.config.from_object(APP_SETTINGS)
+#app.config.from_object(APP_SETTINGS)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
