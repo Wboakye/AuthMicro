@@ -104,7 +104,4 @@ class AllUsers(Resource):
 class SecretResource(Resource):
     @jwt_required
     def post(self):
-        current_user = get_jwt_identity()
-        data = parser.parse_args()
-
-        return { 'user': current_user, 'data': data }
+        return {'user' : get_jwt_identity()}
