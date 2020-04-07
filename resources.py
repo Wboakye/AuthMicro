@@ -32,7 +32,7 @@ class UserRegistration(Resource):
         if db.villagers.find_one({"email" : data["email"] }):
             return {'message': 'User {} already exists'.format(data['email'])}, 400
 
-        if "." or "@" not in data["email"]:
+        if "." not in data["email"] or "@" not in data["email"]:
             return {'message': 'Email address not valid'},400
 
         #create new user, standardize data
