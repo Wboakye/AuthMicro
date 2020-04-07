@@ -1,7 +1,6 @@
 import os
 from flask import Flask
 from flask_restful import Api
-from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from flask_heroku import Heroku
 from pymongo import MongoClient
