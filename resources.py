@@ -1,29 +1,51 @@
+import os
 from flask_restful import Resource, reqparse
 from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt)
-from models import UserModel, RevokedTokenModel
+from helpers import DbMethods, RevokedToken
 
+from app import db
 
-parser = reqparse.RequestParser()
-parser.add_argument('username', help = 'This field cannot be blank', required = True)
-parser.add_argument('password', help = 'This field cannot be blank', required = True)
+register_parser = reqparse.RequestParser()
+register_parser.add_argument('username', help = 'This field cannot be blank', required = True)
+register_parser.add_argument('password', help = 'This field cannot be blank', required = True)
+register_parser.add_argument('email', help = 'This field cannot be blank', required = True)
+register_parser.add_argument('first_name', help = 'This field cannot be blank', required = True)
+register_parser.add_argument('last_name', help = 'This field cannot be blank', required = True)
 
+login_parser = reqparse.RequestParser()
+login_parser.add_argument('username', help = 'This field cannot be blank', required = True)
+login_parser.add_argument('password', help = 'This field cannot be blank', required = True)
+
+pw_parser = reqparse.RequestParser()
+pw_parser.add_argument('password', help = 'This field cannot be blank', required = True)
+
+# TODO: add email/name
 class UserRegistration(Resource):
     def post(self):
         #parse data
-        data = parser.parse_args()
+        data = register_parser.parse_args()
 
-        #reject if username already exists
-        if UserModel.find_by_username(data['username']):
-            return {'message': 'User {} already exists'.format(data['username'])}
+        #validate
+        if db.villagers.find_one({"username" : data["username"] }):
+            return {'message': 'User {} already exists'.format(data['username'])}, 400
 
-        #create new user object using UserModel
-        new_user = UserModel(
-            username=data['username'],
-            password=UserModel.generate_hash(data['password'])
-        )
+        if db.villagers.find_one({"email" : data["email"] }):
+            return {'message': 'User {} already exists'.format(data['email'])}, 400
+
+        if "." or "@" not in data["email"]:
+            return {'message': 'Email address not valid'},400
+
+        #create new user, standardize data
+        new_user = {
+            "first_name": data['first_name'].title(),
+            "last_name": data['last_name'].title(),
+            "email": data['email'].lower(),
+            "username" : data['username'].lower(),
+            "password" : DbMethods.generate_hash(data['password'])
+        }
         try:
-            #save UserModel to db
-            new_user.save_to_db()
+            #save to db
+            db.villagers.insert_one(new_user)
 
             #create jwts
             access_token = create_access_token(identity = data['username'])
@@ -39,34 +61,36 @@ class UserRegistration(Resource):
 
 class UserLogin(Resource):
     def post(self):
-        data = parser.parse_args()
+        data = login_parser.parse_args()
         #find user in db
-        current_user = UserModel.find_by_username(data['username'])
+        if "@" in data['username']:
+            current_user = db.villagers.find_one({"email": data['username']})
+        else:
+            current_user = db.villagers.find_one({"username" : data['username']})
 
         #if user doesn't exist, return error
         if not current_user:
-            return {'message': 'User {} doesn\'t exist'.format(data['username'])}
+            return {'message': 'Username or Password does not exist.'}, 401
 
         #if provided password matches hashed db password return success message w/ jwt
-        if UserModel.verify_hash(data['password'], current_user.password):
+        if  not DbMethods.verify_hash(data['password'], current_user.password):
+            return {'message': 'Wrong credentials'}, 401
+        access_token = create_access_token(identity = data['username'])
+        refresh_token = create_refresh_token(identity = data['username'])
 
-            access_token = create_access_token(identity = data['username'])
-            refresh_token = create_refresh_token(identity = data['username'])
+        return {
+            'message': 'Logged in as {}'.format(current_user.username),
+            'access_token': access_token,
+            'refresh_token': refresh_token
+            }
 
-            return {
-                'message': 'Logged in as {}'.format(current_user.username),
-                'access_token': access_token,
-                'refresh_token': refresh_token
-                }
-        else:
-            return {'message': 'Wrong credentials'}
 
 class UserLogoutAccess(Resource):
     @jwt_required
     def post(self):
         jti = get_raw_jwt()['jti']
         try:
-            revoked_token = RevokedTokenModel(jti = jti)
+            revoked_token = RevokedToken(jti = jti)
             revoked_token.add()
             return {'message': 'Access token has been revoked'}
         except:
@@ -78,7 +102,7 @@ class UserLogoutRefresh(Resource):
     def post(self):
         jti = get_raw_jwt()['jti']
         try:
-            revoked_token = RevokedTokenModel(jti = jti)
+            revoked_token = RevokedToken(jti = jti)
             revoked_token.add()
             return {'message': 'Refresh token has been revoked'}
         except:
@@ -95,10 +119,18 @@ class TokenRefresh(Resource):
 
 class AllUsers(Resource):
     def get(self):
-        return UserModel.return_all()
+        ADMIN_PASS = os.environ.get("ADMIN_PASS", 3)
+        data = pw_parser.parse_args()
+        if ADMIN_PASS is not data["password"]:
+            return {"data": f"You don't have permission to perform this action"}, 401
+        return db.villagers.find({}), 401
 
     def delete(self):
-        return UserModel.delete_all()
+        ADMIN_PASS = os.environ.get("ADMIN_PASS", 3)
+        data = pw_parser.parse_args()
+        if ADMIN_PASS is not data["password"]:
+            return {"data": f"You don't have permission to perform this action"}, 401
+        return db.villagers.find({}), 401
 
 
 class SecretResource(Resource):
