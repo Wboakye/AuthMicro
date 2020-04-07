@@ -126,11 +126,11 @@ class AllUsers(Resource):
         return db.villagers.find({}), 401
 
     def delete(self):
-        ADMIN_PASS = os.environ.get("ADMIN_PASS")
-        if not ADMIN_PASS:
+        admin_pass = os.environ.get("ADMIN_PASS")
+        if not admin_pass:
             return {"data" : "Unable to perform action."}, 500
         data = pw_parser.parse_args()
-        if ADMIN_PASS != data["password"]:
+        if admin_pass != data["password"]:
             return {"data": f"You don't have permission to perform this action"}, 401
         return db.villagers.remove({})
 
