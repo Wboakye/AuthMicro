@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c77fff1-b4c5-4c90-a1ba-cca59741b1ed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585864941500</updated>
       <workItem from="1585864967552" duration="27100000" />
-      <workItem from="1586122689553" duration="16710000" />
+      <workItem from="1586122689553" duration="17285000" />
     </task>
     <servers />
   </component>
@@ -138,10 +139,10 @@
       <screen x="1440" y="-970" width="2560" height="1417" />
     </state>
     <state x="2105" y="-970" width="704" height="584" key="dock-window-1/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585884032032" />
-    <state x="2973" y="-582" width="639" height="729" key="find.popup" timestamp="1585891964404">
+    <state x="2973" y="-582" width="639" height="729" key="find.popup" timestamp="1586220701582">
       <screen x="1440" y="-970" width="2560" height="1417" />
     </state>
-    <state x="2973" y="-582" width="639" height="729" key="find.popup/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1585891964404" />
+    <state x="2973" y="-582" width="639" height="729" key="find.popup/0.23.1440.877/1440.-970.2560.1417@1440.-970.2560.1417" timestamp="1586220701582" />
     <state x="372" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1586124443430">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
