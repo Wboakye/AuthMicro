@@ -63,10 +63,13 @@ class UserLogin(Resource):
     def post(self):
         data = login_parser.parse_args()
         #find user in db
-        if "@" in data['username']:
-            current_user = db.villagers.find_one({"email": data['username']})
+
+        credential = data['username']
+
+        if "@" in credential:
+            current_user = db.villagers.find_one({"email": credential})
         else:
-            current_user = db.villagers.find_one({"username" : data['username']})
+            current_user = db.villagers.find_one({"username" : credential})
 
         #if user doesn't exist, return error
         if not current_user:
@@ -75,8 +78,8 @@ class UserLogin(Resource):
         #if provided password matches hashed db password return success message w/ jwt
         if  not DbMethods.verify_hash(data['password'], current_user.password):
             return {'message': 'Wrong credentials'}, 401
-        access_token = create_access_token(identity = data['username'])
-        refresh_token = create_refresh_token(identity = data['username'])
+        access_token = create_access_token(identity = credential)
+        refresh_token = create_refresh_token(identity = credential)
 
         return {
             'message': 'Logged in as {}'.format(current_user.username),
