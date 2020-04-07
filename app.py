@@ -5,16 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from flask_heroku import Heroku
 from pymongo import MongoClient
-import ssl
 
 app = Flask(__name__)
 api = Api(app)
 
 #initialize db
 MONGO_ATLAS_URL = os.environ.get("MONGO_ATLAS_URL", 3)
-client = MongoClient(MONGO_ATLAS_URL,
-                     ssl=True,
-                     ssl_cert_reqs=ssl.CERT_NONE)
+client = MongoClient(MONGO_ATLAS_URL)
 db = client.villagedb
 
 app.config['JWT_SECRET_KEY'] = os.environ.get("JWT_SECRET", 3)
